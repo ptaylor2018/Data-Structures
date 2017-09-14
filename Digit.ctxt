@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=d
+comment0.target=Digit(int)
+comment1.params=
+comment1.target=int\ getDigit()
+comment2.params=d
+comment2.target=void\ setDigit(int)
+comment3.params=
+comment3.target=Digit\ getNext()
+comment4.params=d
+comment4.target=void\ setNext(Digit)
+comment5.params=
+comment5.target=Digit\ getPrev()
+comment6.params=d
+comment6.target=void\ setPrev(Digit)
+numComments=7

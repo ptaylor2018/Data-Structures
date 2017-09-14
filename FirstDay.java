@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class FirstDay{
     /**
      * @param String args[] allows for command line inputs
-     * @return nothing, but pritns sum
+     * @return nothing, but prints sum
      */
     public static void main(String args[]){
         //catches problems with reading the file
