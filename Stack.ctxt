@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=n
+comment0.target=void\ push(Node)
+comment1.params=
+comment1.target=Node\ pop()
+comment2.params=
+comment2.target=Node\ peek()
+numComments=3
