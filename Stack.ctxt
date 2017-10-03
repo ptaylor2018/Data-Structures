@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=v
+comment0.target=void\ push(java.lang.Object)
+comment0.text=\r\n\ @param\ Node\ to\ go\ on\ top\ of\ stack\r\n\ @return\ nothing\r\n\ adds\ argument\ Node\ to\ top\ of\ stack\r\n
+comment1.params=
+comment1.target=java.lang.Object\ pop()
+comment1.text=\r\n\ @param\ nothing\r\n\ @return\ top\ of\ stack\r\nremoves\ top\ from\ stack\ and\ returns\ it\ \r\n
+comment2.params=
+comment2.target=java.lang.Object\ peek()
+comment2.text=\r\n\ @param\ nothing\r\n\ @return\ top\ of\ stack\r\n\ see\ waht's\ on\ top\ \r\n
+numComments=3
