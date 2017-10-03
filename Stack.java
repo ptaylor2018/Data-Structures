@@ -14,8 +14,8 @@ public class Stack
      * adds argument Node to top of stack
      */
     public void push(Node n){ 
-        n.setNext(top);
-        top = n;
+        n.setNext(n);
+        //top = n;
     }
 
     /**
