@@ -16,23 +16,26 @@ public class Parents
         String text = scan.nextLine();
         Stack<String> parents = new Stack<String>();
        // ArrayList<String> chars = new ArrayList<String>();
+        boolean crap = false;
         for(int i = 0; i<text.length();i++){
             //scores.add(text.substring(i,i+1));
-            if(text.substring(i,i+1) == "h"){
-                System.out.println("cake");
+            //System.out.println(text.substring(i,i+1));
+            if(text.substring(i,i+1).equals("(")){
+                //System.out.println("cake");
                 parents.push("(");
-            } else if (text.substring(i,i+1) == ")"){
+            } else if (text.substring(i,i+1).equals(")")){
                  String test = parents.pop();
                 if(test == null){
                     System.out.println("Too many closing parenthesis");
-                    
+                    crap = true;
+                    break;
                 }
             }
         
         }
         if(parents.pop() != null){
             System.out.println("Too many opening parenthesis");
-        } else{
+        } else if(crap != true ){
             System.out.println("All good");
         }
         
