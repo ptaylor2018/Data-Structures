@@ -13,15 +13,15 @@ public class Amazeing
         String[][] maze = makeArray();
         int startPosX = 0;
         int startPosY = 0;
-        //System.out.println(maze.length);
-        //System.out.println(maze[0].length);
+        System.out.println(maze.length);
+        System.out.println(maze[0].length);
         // System.out.println(maze[1].length);
         for(int j = 0; j <maze[0].length; j++){
             for(int i = 0; i <  maze.length; i++){
                 if(maze[i][j].equals("@")){
                     startPosX = i;
                     startPosY = j;
-                    //System.out.println(i+" "+j);
+                    System.out.println(i+" "+j);
 
                 }
             }
@@ -33,8 +33,9 @@ public class Amazeing
         Stack<int[]> path =  new Stack<int[]>();   
         path.push(firstPos);
         while(notDone){
-           if(yPos+1 != maze.length && xPos != maze[0].length){
-                if(maze[xPos][yPos + 1].equals(".")||maze[xPos][yPos + 1].equals("$")){
+            if(yPos+1 >= 0 && yPos + 1 < maze[0].length && xPos >= 0 && xPos <maze.length){
+                
+                if((maze[xPos][yPos + 1].equals(".")||maze[xPos][yPos + 1].equals("$"))){
                     maze[xPos][yPos] = "x";
                     xPos = xPos;
                     yPos = yPos + 1;
@@ -46,38 +47,45 @@ public class Amazeing
 
                 }
             }
-            else if(maze[xPos][yPos-1].equals(".")||maze[xPos][yPos-1].equals("$")){
-                maze[xPos][yPos] = "x";
-                xPos = xPos;
-                yPos = yPos - 1;
-                int[] thePos = {xPos,yPos};
-                path.push(thePos);
-                if(maze[xPos][yPos].equals("$")){
-                    notDone = false;
-                }
+            else if(yPos-1 >= 0 && yPos - 1 < maze[0].length && xPos >= 0 && xPos <maze.length){
+                System.out.println("the");
+                if(maze[xPos][yPos-1].equals(".")||maze[xPos][yPos-1].equals("$")){
+                    maze[xPos][yPos] = "x";
+                    xPos = xPos;
+                    yPos = yPos - 1;
+                    int[] thePos = {xPos,yPos};
+                    path.push(thePos);
+                    if(maze[xPos][yPos].equals("$")){
+                        notDone = false;
+                    }
 
+                }
             }
-            else if(maze[xPos - 1][yPos].equals(".")||maze[xPos - 1][yPos].equals("$")){
-                maze[xPos][yPos] = "x";
-                xPos = xPos - 1;
-                yPos = yPos;
-                int[] thePos = {xPos,yPos};
-                path.push(thePos);
-                if(maze[xPos][yPos].equals("$")){
-                    notDone = false;
-                }
+            else if((yPos >= 0) && (yPos < maze[0].length) && (xPos-1 >= 0) && (xPos-1 <maze.length)){
+                if(maze[xPos - 1][yPos].equals(".")||maze[xPos - 1][yPos].equals("$")){
+                    maze[xPos][yPos] = "x";
+                    xPos = xPos - 1;
+                    yPos = yPos;
+                    int[] thePos = {xPos,yPos};
+                    path.push(thePos);
+                    if(maze[xPos][yPos].equals("$")){
+                        notDone = false;
+                    }
 
+                }
             }
-            else if(maze[xPos + 1][yPos].equals(".")||maze[xPos + 1][yPos].equals("$")){
-                maze[xPos][yPos] = "x";
-                xPos = xPos + 1;
-                yPos = yPos;
-                int[] thePos = {xPos,yPos};
-                path.push(thePos);
-                if(maze[xPos][yPos].equals("$")){
-                    notDone = false;
-                }
+            else if((yPos >= 0) && (yPos < maze[0].length) && (xPos+1 >= 0) && (xPos+1 <maze.length)){
+                if(maze[xPos + 1][yPos].equals(".")||maze[xPos + 1][yPos].equals("$")){
+                    maze[xPos][yPos] = "x";
+                    xPos = xPos + 1;
+                    yPos = yPos;
+                    int[] thePos = {xPos,yPos};
+                    path.push(thePos);
+                    if(maze[xPos][yPos].equals("$")){
+                        notDone = false;
+                    }
 
+                }
             }
             else{
                 path.pop();
