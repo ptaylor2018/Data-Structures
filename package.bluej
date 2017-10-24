@@ -1,4 +1,5 @@
 #BlueJ package file
+<<<<<<< Updated upstream
 dependency1.from=VeggieStuff
 dependency1.to=Vegetable
 dependency1.type=UsesDependency
@@ -190,3 +191,24 @@ target9.type=ClassTarget
 target9.width=80
 target9.x=180
 target9.y=270
+=======
+objectbench.height=76
+objectbench.width=658
+package.editor.height=400
+package.editor.width=560
+package.editor.x=1609
+package.editor.y=152
+package.numDependencies=0
+package.numTargets=1
+package.showExtends=true
+package.showUses=true
+project.charset=UTF-8
+target1.height=50
+target1.name=FirstDay
+target1.showInterface=false
+target1.type=ClassTarget
+target1.typeParameters=
+target1.width=80
+target1.x=70
+target1.y=10
+>>>>>>> Stashed changes
