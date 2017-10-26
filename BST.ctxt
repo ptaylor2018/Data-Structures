@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=insertMe
+comment0.target=void\ insert(java.lang.Comparable)
+comment1.params=
+comment1.target=void\ inOrderPrint()
+comment2.params=checkMe
+comment2.target=boolean\ exists(java.lang.Comparable)
+numComments=3
