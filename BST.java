@@ -1,34 +1,55 @@
 import java.util.*;
 /**
- * Write a description of class BST here.
+ * BST
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Patrick Taylor
+ * @version 1.0
  */
 public class BST <T extends Comparable<T>>
 {
     BSTNode <T> root;
     BSTNode <T> curr = root;
     public void insert(T insertMe){
-        
-        /*if(curr == null){
-        curr.set(insertMe);
+        BSTNode <T> toInsert =null;
+        toInsert.set(insertMe);
+
+        if (curr.get() ==null){
+            curr.set(insertMe);
+        }else if(toInsert.getc().compareTo(curr.getc()) < 0){
+            curr = curr.getLeft();
+            insert(insertMe);
+        } else if(toInsert.getc().compareTo(curr.getc()) > 0){
+            curr = curr.getRight();
+            insert(insertMe);
         }
-        else if(insertMe.compareTo(curr.getc()) < 0){
-            curr = getLeft();
-            insert(insertMe);
-        } else if(insertMe.compareTo(curr.getc()) > 0){
-            curr = getRight();
-            insert(insertMe);
-        }*/
-    }
-    public void inOrderPrint(){
         
+    }
+
+    public void inOrderPrint(){
+        if(curr != null){
+            curr = curr.getLeft();
+            inOrderPrint();
+            System.out.println(curr.get());
+            curr = curr.getRight();
+            inOrderPrint();
+        }
+
     }
     public boolean exists(T checkMe){
-        return true;
+        BSTNode <T> toCheck =null;
+        toCheck.set(checkMe);
+        if(curr != null){
+            curr = curr.getLeft();
+            exists(checkMe);
+            if(curr.getc().compareTo(toCheck.getc()) == 0){
+                return true;
+            }
+            curr = curr.getRight();
+            exists(checkMe);
+        }
+        return false;
     }
-    public class BSTNode <X>
+    public class BSTNode <X extends Comparable<X>>
     {
         X val;
         BSTNode left;
