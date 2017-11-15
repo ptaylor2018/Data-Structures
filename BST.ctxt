@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=in
+comment0.target=void\ insert(java.lang.Object)
+comment0.text=\r\n\ insert\ a\ single\ element\ into\ the\ tree.\ It\ is\ potentially\ possible\ to\ mess\ up\ the\ tree\ by\ modifying\ an\ element\ after\ insertion.\r\n\ @param\ in\ the\ element\ to\ insert\ (the\ actual\ instance\ is\ inserted,\ NOT\ A\ CLONE)\r\n
+comment1.params=parent\ insertMe
+comment1.target=void\ insert_re(BST.BSTNode,\ BST.BSTNode)
+comment2.params=
+comment2.target=void\ inOrderPrint()
+comment2.text=\r\n\ in\ order\ traversal\ of\ the\ tree,\ using\ println\ to\ output\ the\ elements\r\n
+comment3.params=parent
+comment3.target=void\ inOrderPrint_re(BST.BSTNode)
+comment4.params=parent\ list
+comment4.target=void\ inOrderArray_re(BST.BSTNode,\ java.util.ArrayList)
+comment5.params=q
+comment5.target=boolean\ exists(java.lang.Object)
+comment5.text=\r\n\ See\ if\ an\ element\ exists\ in\ the\ tree\r\n\ @param\ q\ element\ to\ search\ for\ in\ the\ tree\r\n\ @return\ true\ if\ an\ element\ in\ the\ tree\ is\ equal\ to\ the\ q,\ false\ otherwise\r\n
+comment6.params=q\ parent
+comment6.target=boolean\ exists_re(java.lang.Object,\ BST.BSTNode)
+comment7.params=
+comment7.target=void\ printTree()
+comment8.params=
+comment8.target=void\ balance()
+comment9.params=parent\ list
+comment9.target=void\ balance_re(BST.BSTNode,\ java.util.ArrayList)
+numComments=10
