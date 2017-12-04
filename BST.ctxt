@@ -1,5 +1,4 @@
 #BlueJ class context
-<<<<<<< HEAD
 comment0.params=in
 comment0.target=void\ insert(java.lang.Object)
 comment0.text=\r\n\ insert\ a\ single\ element\ into\ the\ tree.\ It\ is\ potentially\ possible\ to\ mess\ up\ the\ tree\ by\ modifying\ an\ element\ after\ insertion.\r\n\ @param\ in\ the\ element\ to\ insert\ (the\ actual\ instance\ is\ inserted,\ NOT\ A\ CLONE)\r\n
@@ -19,17 +18,11 @@ comment6.params=q\ parent
 comment6.target=boolean\ exists_re(java.lang.Object,\ BST.BSTNode)
 comment7.params=
 comment7.target=void\ printTree()
+comment7.text=\r\n\ print\ out\ tree\ with\ layers\r\n\ \r\n\ @return\ nothing\r\n
 comment8.params=
 comment8.target=void\ balance()
-comment9.params=parent\ list
-comment9.target=void\ balance_re(BST.BSTNode,\ java.util.ArrayList)
+comment8.text=\r\n\ blanace\ the\ tree\r\n\ \r\n\ @return\ nothing\r\n
+comment9.params=list
+comment9.target=BST.BSTNode\ balance_re(java.util.ArrayList)
+comment9.text=\r\n\ do\ the\ actual\ balancing\r\n\ @param\ list\ list\ of\ all\ values\ in\ inOrder\ order\r\n\ @return\ node\r\n
 numComments=10
-=======
-comment0.params=insertMe
-comment0.target=void\ insert(java.lang.Comparable)
-comment1.params=
-comment1.target=void\ inOrderPrint()
-comment2.params=checkMe
-comment2.target=boolean\ exists(java.lang.Comparable)
-numComments=3
->>>>>>> f5721fc7b5d1dd5f6cc59d4c8ff93c80a765232a

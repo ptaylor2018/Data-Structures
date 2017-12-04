@@ -1,5 +1,5 @@
 import java.util.*;
-<<<<<<< HEAD
+
 import java.util.LinkedList;
 import java.util.Queue;
 /**
@@ -62,12 +62,14 @@ public class BST <T> {
         System.out.println(parent.get());
         inOrderPrint_re(parent.getRight());
     }
+
     private void inOrderArray_re(BSTNode<T> parent, ArrayList<BSTNode> list ) {
         if (parent == null) return;
         inOrderArray_re(parent.getLeft(), list);
         list.add(parent);
         inOrderArray_re(parent.getRight(), list);
     }
+
     /**
      * See if an element exists in the tree
      * @param q element to search for in the tree
@@ -88,13 +90,18 @@ public class BST <T> {
         }
     }
 
+    /**
+     * print out tree with layers
+     * 
+     * @return nothing
+     */
     public void printTree(){
         Queue<BSTNode> nodes = new LinkedList<>();
         BSTNode<T> completionNode = root;
         BSTNode<T> curr = root;
         nodes.add(curr);
         while(nodes.size() > 0){
-            
+
             System.out.print(curr.get()+ "\t");
             if(curr.getLeft() != null){
                 nodes.add(curr.getLeft());
@@ -114,27 +121,42 @@ public class BST <T> {
                     nodes.add(flipNodes.remove());
                 }
             }
-            
+
             nodes.remove();
-            
+
             curr = nodes.peek();
         }
 
     }
+
+    /**
+     * blanace the tree
+     * 
+     * @return nothing
+     */
     public void balance(){
-        BSTNode<T> parent = root;
+
         ArrayList<BSTNode> list = new ArrayList<BSTNode>();
         if (root != null) {
-            inOrderArray_re(parent, list);
+            inOrderArray_re(root, list);
         }
-        System.out.println(list.size());
-        balance_re(parent, list);
-        
+
+        root = balance_re(list);
+
     }
-    private void balance_re(BSTNode parent, ArrayList<BSTNode> list){
-      int median = (int)(list.size()/2.0);
-      System.out.println(median);
-        parent = list.get(median);
+
+    /**
+     * do the actual balancing
+     * @param list list of all values in inOrder order
+     * @return node
+     */
+    private BSTNode balance_re(ArrayList<BSTNode> list){
+        if(list.isEmpty()){
+            return null;
+        }
+        BSTNode<T> returnMe =  new BSTNode<T>();
+        int median = (int)(list.size()/2.0);
+        returnMe = list.get(median);
         ArrayList<BSTNode> list_left = new ArrayList<BSTNode>();
         ArrayList<BSTNode> list_right = new ArrayList<BSTNode>();
         for(int i = 0; i<median; i++){
@@ -142,9 +164,11 @@ public class BST <T> {
         }
         for(int i = median+1; i < list.size(); i++){
             list_right.add(list.get(i));
-        }  
-        balance_re(parent.getLeft(), list_left);
-        balance_re(parent.getRight(), list_right);
+        }
+
+        returnMe.setLeft(balance_re(list_left));
+        returnMe.setRight(balance_re(list_right));
+        return returnMe;
     }
     public class BSTNode <X>
     {
@@ -168,93 +192,4 @@ public class BST <T> {
         Comparable getc() { return (Comparable) val;}
     }
 }
-=======
-/**
- * BST
- * 
- * @author Patrick Taylor
- * @version 1.0
- */
-public class BST <T extends Comparable<T>>
-{
-    BSTNode <T> root;
-    BSTNode <T> curr = root;
-    public void insert(T insertMe){
-        BSTNode <T> toInsert =null;
-        toInsert.set(insertMe);
 
-        if (curr.get() ==null){
-            curr.set(insertMe);
-        }else if(toInsert.getc().compareTo(curr.getc()) < 0){
-            curr = curr.getLeft();
-            insert(insertMe);
-        } else if(toInsert.getc().compareTo(curr.getc()) > 0){
-            curr = curr.getRight();
-            insert(insertMe);
-        }
-        
-    }
-
-    public void inOrderPrint(){
-        if(curr != null){
-            curr = curr.getLeft();
-            inOrderPrint();
-            System.out.println(curr.get());
-            curr = curr.getRight();
-            inOrderPrint();
-        }
-
-    }
-    public boolean exists(T checkMe){
-        BSTNode <T> toCheck =null;
-        toCheck.set(checkMe);
-        if(curr != null){
-            curr = curr.getLeft();
-            exists(checkMe);
-            if(curr.getc().compareTo(toCheck.getc()) == 0){
-                return true;
-            }
-            curr = curr.getRight();
-            exists(checkMe);
-        }
-        return false;
-    }
-    public class BSTNode <X extends Comparable<X>>
-    {
-        X val;
-        BSTNode left;
-        BSTNode right;
-
-        BSTNode getLeft() {
-            return left;
-        }
-
-        BSTNode getRight() {
-            return right;
-        }
-
-        void setLeft(BSTNode bn) {
-            left = bn;
-        }
-
-        void setRight(BSTNode bn) {
-            right = bn;
-        }
-
-        X get() {
-            return val;
-        }
-
-        void set(X v) {
-            val = v;
-        }
-
-        //need a version of get that returns a comparable object,
-        //because compareTo won't work on generic types by default
-        //use get when you need to access the value, use getc
-        //when you need to do a comparison
-        //This will crash if a non-comparable object is used.
-        Comparable getc() {return (Comparable) val;}
-    }
-}
->>>>>>> f5721fc7b5d1dd5f6cc59d4c8ff93c80a765232a

@@ -15,7 +15,9 @@ public class bstest
         testy.insert(15);
         testy.insert(22);
         testy.printTree();
+        System.out.println("break");
         testy.balance();
+        System.out.println("break");
         testy.printTree();
     }
 }
