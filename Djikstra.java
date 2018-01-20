@@ -3,30 +3,40 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Stack;
 /**
- * Write a description of class djikstra here.
+ * Uses Djikstra's algorithm to find best path
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Patrick Taylor 
+ * @version 1.0.0
  */
 public class Djikstra
 {
     public static void main (String args[]){
-
         System.out.println("Welcome to Dijkstra Town");
         int[][] graph = readFile();
         printGraph(graph);
         Scanner user_input = new Scanner( System.in );
+        boolean exit = false;
         String quit = "n";
-        while(quit != "y"){
+        while(exit == false){
             System.out.print("Do you want to quit?(y/n): ");
             quit = user_input.next();
-            if (quit == "n"){
+            if(quit.equals("n")){
+                exit = false;
+            }
+            if(quit.equals("y")){
+                exit = true;
+            }
+            if (exit == false){
                 djikstra(graph);
             }
         }
 
     }
 
+    /**
+     * reads the file containing the graph, saves in 2d array
+     * @return int[][]: array of graph
+     */
     public static int[][] readFile(){
         int[][] graph = new int[1][1];
         try{
@@ -46,7 +56,13 @@ public class Djikstra
         return graph;
     }
 
-    public static void djikstra(){
+    /**
+     * actually runs the algorithm
+     * @param int[][] graph: array containing graph
+     * @return void
+     */
+    public static void djikstra(int[][] graph){
+        //grather starting info
         Scanner user_input2 = new Scanner( System.in );
         int startingNode;
         System.out.print("Enter starting Node: ");
@@ -55,6 +71,7 @@ public class Djikstra
         System.out.print("Enter ending Node: ");
         endingNode = user_input2.nextInt();
         user_input2.close();
+        //initial setup of lists of unvisited/visited nodes, table, current node
         ArrayList<Integer> visitedNodes = new ArrayList<Integer>();
         ArrayList<Integer> unvisitedNodes = new ArrayList<Integer>();
         for(int i = 0; i < graph.length; i++){
@@ -67,8 +84,9 @@ public class Djikstra
         pathTable[startingNode][0] = 0;
         pathTable[startingNode][1] = -1;
         int currentNode = startingNode;
+        //actual algorithm
         while(unvisitedNodes.size() > 0){
-            //choose node with the smallest known value
+            //choose node with the smallest known value, set to current node
             int lowestVal = Integer.MAX_VALUE;
             int lowestNode = currentNode;
             for(int i = 0; i < unvisitedNodes.size(); i++){
@@ -88,10 +106,12 @@ public class Djikstra
                     } 
                 }
             }
+            //move current node from list of visited nodes to list of unvisited nodes
             visitedNodes.add(currentNode);
             unvisitedNodes.remove(unvisitedNodes.indexOf(currentNode));
         }
         printTable(pathTable);
+        //figrues out optimal path by backtracking through table, then prints it
         Stack<Integer> stack = new Stack<Integer>();
         int backTrackNode = endingNode;
         while(pathTable[backTrackNode][1] != -1){
@@ -105,6 +125,11 @@ public class Djikstra
         }
     }
 
+    /**
+     * prints out the graph array for checking
+     * @param int[][] graph: array containing graph
+     * @return void
+     */
     public static void printGraph(int[][] graph){
         for(int i = 0; i < graph.length; i++){
             for(int j = 0; j < graph.length; j++){
@@ -114,6 +139,11 @@ public class Djikstra
         }
     }
 
+    /**
+     * prints out table of distances and previous nodes for checking
+     * @param int[][] table: table of values
+     * @return void
+     */
     public static void printTable(int[][] table){
         for(int i = 0; i <table.length; i++){
             for(int j = 0; j < table[0].length; j++){
